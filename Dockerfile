@@ -1,4 +1,4 @@
-FROM 8.1-apache-bookworm
+FROM php:8.1-apache-bookworm
 MAINTAINER green
 
 RUN apt-get update && apt-get install -y zip unzip git gettext curl gsfonts software-properties-common && rm -rf /var/lib/apt/lists/*
