@@ -14,7 +14,7 @@ RUN mkdir -p data/cache && mkdir -p data/LazyServices/Proxy && mkdir -p data/Doc
 RUN curl -sS https://getcomposer.org/installer -o composer-setup.php
 RUN php composer-setup.php --install-dir=/usr/bin --filename=composer
 RUN apt-get update && apt-get install -y libmagickwand-dev --no-install-recommends && rm -rf /var/lib/apt/lists/*
-RUN mkdir ~/.ssh
+RUN mkdir -p ~/.ssh
 RUN echo "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
 RUN printf "\n" | pecl install imagick apcu
 RUN docker-php-ext-enable imagick apcu
