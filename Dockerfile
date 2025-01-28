@@ -47,6 +47,9 @@ COPY local.php ./config/autoload/local.php
 #Update monarc
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
 RUN apt-get update 
+RUN export NVM_DIR="$HOME/.nvm" 
+RUN [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" 
+RUN [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 RUN nvm install 14.19.3
 RUN npm install -g grunt-cli
 EXPOSE 80
