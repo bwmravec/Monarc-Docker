@@ -45,8 +45,9 @@ RUN git clone https://github.com/monarc-project/ng-anr.git node_modules/ng_anr -
 COPY local.php ./config/autoload/local.php
 
 #Update monarc
-RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
-RUN apt-get update && apt-get -y install nodejs && rm -rf /var/lib/apt/lists/*
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
+RUN apt-get update 
+RUN nvm install 14.19.3
 RUN npm install -g grunt-cli
 EXPOSE 80
 
